@@ -18,7 +18,7 @@ const Section5 = () => {
   const [isValidated, setIsValidated] = useState({
     name: "",
     email: "",
-    message: ""
+    message: "",
   });
 
   const [sendSuccessful, setSendSuccessful] = useState(false);
@@ -62,8 +62,8 @@ const Section5 = () => {
     e.preventDefault();
     // validate();
     // if (isValidated.name && isValidated.email && isValidated.message)
-      sendEmail(dummyData);
-    };
+    sendEmail(dummyData);
+  };
 
   return (
     <div id="kontakt" className="contact">
@@ -71,7 +71,15 @@ const Section5 = () => {
       <div className="contact__right">
         <h1>Skontaktuj się z nami</h1>
         <img src={decoration} alt="decoration"></img>
-        <form action="" className="contact__form">
+        <div className="succes">
+          {sendSuccessful ? (
+            <>
+              <span>Wiadomość została wysłana!</span>
+              <span>Wkrótce się skontakujemy</span>
+            </>
+          ) : null}
+        </div>
+        <form className="contact__form">
           <div>
             <label>
               Wpisz swoje imię
