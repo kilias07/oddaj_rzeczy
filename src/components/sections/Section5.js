@@ -14,48 +14,57 @@ const Section5 = () => {
     email: "",
     message: "",
   });
-  
+
   const [isValidated, setIsValidated] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: ""
   });
+
+  const [sendSuccessful, setSendSuccessful] = useState(false);
 
   const changeHandler = (e) => {
     const { name, value } = e.target;
     setContactForm((prevState) => ({ ...prevState, [name]: value }));
   };
 
-  const validate = () => {
-    const { name, email, message } = contactForm;
-    console.log(name.length)
-    name.length > 4 &&
-    setIsValidated((prevState) => ({ ...prevState, name: true }));
-    email.length > 4 ? setIsValidated((prevState) => ({ ...prevState, email: true })) : setIsValidated((prevState) => ({ ...prevState, email: false }))
-    message.length > 10 &&
-    setIsValidated((prevState) => ({ ...prevState, message: true }));
+  // const validate = () => {
+  //   const { name, email, message } = contactForm;
+  //   name.length > 4 &&
+  //     setIsValidated((prevState) => ({ ...prevState, name: true }));
+  //   email.length > 4
+  //     ? setIsValidated((prevState) => ({ ...prevState, email: true }))
+  //     : setIsValidated((prevState) => ({ ...prevState, email: false }));
+  //   message.length > 10 &&
+  //     setIsValidated((prevState) => ({ ...prevState, message: true }));
+  // };
+  const sendEmail = async (valiatedData) => {
+    try {
+      const response = await fetch(
+        "https://fer-api.coderslab.pl/v1/portfolio/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(valiatedData),
+        }
+      );
+
+      if (response.ok) {
+        return setSendSuccessful(true);
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
   const formHandler = (e) => {
     e.preventDefault();
-    validate();
-    console.log(isValidated)
-    if (isValidated.name && isValidated.email && isValidated.message) sendEmail(dummyData);
-  };
-  const sendEmail = async (valiatedData) => {
-    const response = await fetch(
-      "https://fer-api.coderslab.pl/v1/portfolio/contact",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(valiatedData),
-      }
-    );
-  
-    const data = await response.json();
-    console.log(data);
-  };
+    // validate();
+    // if (isValidated.name && isValidated.email && isValidated.message)
+      sendEmail(dummyData);
+    };
+
   return (
     <div id="kontakt" className="contact">
       <div className="contact__left"></div>
@@ -73,7 +82,9 @@ const Section5 = () => {
                 placeholder="Twoje imię"
                 onChange={changeHandler}
               />
-              {isValidated.name === false && <p style={{ color: "red" }}>Podane imię jest nieprawdłowe! </p>}
+              {isValidated.name === false && (
+                <p style={{ color: "red" }}>Podane imię jest nieprawdłowe! </p>
+              )}
             </label>
             <label>
               Wpisz swój email
@@ -84,7 +95,11 @@ const Section5 = () => {
                 placeholder="Twój email"
                 onChange={changeHandler}
               />
-              {isValidated.email === false && <p style={{ color: "red" }}>Podany email jest nieprawidłowy! </p>}
+              {isValidated.email === false && (
+                <p style={{ color: "red" }}>
+                  Podany email jest nieprawidłowy!{" "}
+                </p>
+              )}
             </label>
           </div>
           <label>
@@ -96,9 +111,11 @@ const Section5 = () => {
               value={contactForm.message}
               onChange={changeHandler}
             ></textarea>
-            {isValidated.message === false && <p style={{ color: "red" }}>
-              Wiadomość musi mieć conajmniej 120 znaków!
-            </p>}
+            {isValidated.message === false && (
+              <p style={{ color: "red" }}>
+                Wiadomość musi mieć conajmniej 120 znaków!
+              </p>
+            )}
           </label>
           <div>
             <button type="submit" value="Wyślij" onClick={formHandler}>
