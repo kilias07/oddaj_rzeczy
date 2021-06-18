@@ -1,0 +1,31 @@
+.navbar__container {
+  display: flex;
+  justify-content: flex-end;
+  width: 90%;
+  margin: auto;
+  font-family: $font-base;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  nav {
+    width: 40%;
+    
+    ul {
+      display: flex;
+      justify-content: space-between;
+      flex-basis: 55px;
+      align-items: center;
+      li:first-child {
+        border: 1px solid $dark-gray;
+        padding: 0.5rem 1rem;
+      }
+
+      a {
+        color: $dark-gray;
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 400;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,29 @@
+@use '../../settings/colors';
+.loginbar__container {
+  height: 4rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  max-width: 90%;
+  margin: auto;
+  
+  ul {
+    height: 2.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 12rem;
+    font-family: $font-base;
+  }
+  a {
+    text-decoration: none;
+    color: $dark-gray;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+  a:nth-child(2) {
+    border: 1px solid $yellow;
+    padding: 0.5rem 1rem;
+  }
+}

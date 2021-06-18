@@ -4,15 +4,31 @@
 // FONTS
 @import './settings//fonts';
 
+//COLORS
+@import './settings/colors';
 
-.border {
-  border-bottom: 4px solid yellow;
+:root {
+  font-family: $font-base;
 }
+// LOGINBAR + NAVBAR
+@import './layout/Navbar/menu';
 
-.blue {
-  background-color: aqua;
-}
 
-.green {
-  background-color: green;
-}
+// SECTION1
+@import './layout/Sections/section1';
+
+//SECTION2
+@import './layout/Sections/section2';
+
+//SECTION3
+@import './layout/Sections/section3';
+
+//SECTION4
+@import './layout/Sections/section4';
+
+//SECTION5
+@import './layout/Sections/section5';
+
+
+//FOOTER
+@import './layout/Navbar/footer';
