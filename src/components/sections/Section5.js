@@ -52,6 +52,7 @@ const Section5 = () => {
       );
 
       if (response.ok) {
+        setContactForm(()=> ({name: "", email: "", message: ""}))
         return setSendSuccessful(true);
       }
     } catch (err) {
@@ -126,7 +127,7 @@ const Section5 = () => {
             )}
           </label>
           <div>
-            <button type="submit" value="Wyślij" onClick={formHandler}>
+            <button type="submit" value="Wyślij" onClick={formHandler} >
               Wyślij
             </button>
           </div>
