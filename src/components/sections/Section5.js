@@ -1,43 +1,16 @@
 import decoration from "../../assets/images/Decoration.svg";
 import { useState } from "react";
-
-const dummyData = {
-  name: "Kamil",
-  email: "zbignieJson@gmail.com",
-  message:
-    "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque eum incidunt, quod alias unde autem adipisci iusto vel nihil perspiciatis quas beatae voluptatibus facilis aliquid magnam consectetur provident facere nisi.",
-};
+import { useForm } from "react-hook-form";
 
 const Section5 = () => {
-  const [contactForm, setContactForm] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const [isValidated, setIsValidated] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
   const [sendSuccessful, setSendSuccessful] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
 
-  const changeHandler = (e) => {
-    const { name, value } = e.target;
-    setContactForm((prevState) => ({ ...prevState, [name]: value }));
-  };
-
-  // const validate = () => {
-  //   const { name, email, message } = contactForm;
-  //   name.length > 4 &&
-  //     setIsValidated((prevState) => ({ ...prevState, name: true }));
-  //   email.length > 4
-  //     ? setIsValidated((prevState) => ({ ...prevState, email: true }))
-  //     : setIsValidated((prevState) => ({ ...prevState, email: false }));
-  //   message.length > 10 &&
-  //     setIsValidated((prevState) => ({ ...prevState, message: true }));
-  // };
   const sendEmail = async (valiatedData) => {
     try {
       const response = await fetch(
@@ -52,19 +25,21 @@ const Section5 = () => {
       );
 
       if (response.ok) {
-        setContactForm(()=> ({name: "", email: "", message: ""}))
+        reset({ name: "", email: "", message: "" });
         return setSendSuccessful(true);
       }
     } catch (err) {
       console.log(err);
     }
   };
-  const formHandler = (e) => {
+
+  const onSubmit = (data, e) => {
     e.preventDefault();
-    // validate();
-    // if (isValidated.name && isValidated.email && isValidated.message)
-    sendEmail(dummyData);
+    sendEmail(data);
   };
+  const test = () => {
+    console.log(errors.email && errors.email?.type)
+  }
 
   return (
     <div id="kontakt" className="contact">
@@ -80,56 +55,47 @@ const Section5 = () => {
             </>
           ) : null}
         </div>
-        <form className="contact__form">
+        <form className="contact__form" onSubmit={handleSubmit(onSubmit)}>
           <div>
             <label>
               Wpisz swoje imię
               <input
-                name="name"
-                type="text"
-                value={contactForm.name}
+                {...register("name", {
+                  required: true,
+                  maxLength: 30,
+                  minLength: 4,
+                })}
                 placeholder="Twoje imię"
-                onChange={changeHandler}
+                className={errors.name?.type && "error"}
               />
-              {isValidated.name === false && (
-                <p style={{ color: "red" }}>Podane imię jest nieprawdłowe! </p>
-              )}
+              {errors.name && <span>Podane imię jest nieprawidłowe!</span>}
             </label>
             <label>
               Wpisz swój email
               <input
-                name="email"
-                type="email"
-                value={contactForm.email}
+                className={errors.email?.type && "error"}
+                {...register("email", {
+                  required: true,
+                  pattern:
+                    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                })}
                 placeholder="Twój email"
-                onChange={changeHandler}
               />
-              {isValidated.email === false && (
-                <p style={{ color: "red" }}>
-                  Podany email jest nieprawidłowy!{" "}
-                </p>
-              )}
+              {errors.email && <span>Podany email jest nieprawidłowy</span>}
             </label>
           </div>
           <label>
             Wpisz swoją wiadomość
             <textarea
-              name="message"
-              id=""
-              rows="10"
-              value={contactForm.message}
-              onChange={changeHandler}
-            ></textarea>
-            {isValidated.message === false && (
-              <p style={{ color: "red" }}>
-                Wiadomość musi mieć conajmniej 120 znaków!
-              </p>
+              className={errors.message?.type && "error"}
+              {...register("message", { required: true, minLength: 120 })}
+            />
+            {errors.message && (
+              <span>Wiadomość musi mieć conajmniej 120 znaków!</span>
             )}
           </label>
           <div>
-            <button type="submit" value="Wyślij" onClick={formHandler} >
-              Wyślij
-            </button>
+            <button type="submit" onClick={test}>Wyślij</button>
           </div>
         </form>
       </div>

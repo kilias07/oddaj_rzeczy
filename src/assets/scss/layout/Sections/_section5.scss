@@ -44,6 +44,14 @@
   width: 60%;
   margin: auto;
 
+  .error {
+    border-bottom: 1px solid red;
+  }
+  span {
+    color: red;
+    font-size: 12px;
+  }
+
   input,
   textarea {
     display: block;
@@ -53,8 +61,8 @@
     resize: none;
     width: 90%;
     font-family: $font-base;
-    margin: 15px 0;
-    padding: 8px 0;
+    margin: 15px 0px;
+    padding: 8px 0px;
     border-bottom: 1px solid $gray;
     outline: none;
   }
@@ -71,6 +79,7 @@
 
   textarea {
     width: 100%;
+    height: 200px;
   }
 
   div:last-child {
