@@ -8,17 +8,19 @@ import Logout from "./views/Logout";
 
 function App() {
   return (
+    <>
     <Router>
       <LayoutDefault>
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/oddaj-rzeczy" exact component={OddajRzeczy} />
-          <Route path="/logowanie" exact component={Signin} />
-          <Route path="/rejestracja" exact component={Signup} />
-          <Route path="/wylogowano" exact component={Logout} />
+          <Route path="/oddaj-rzeczy" component={OddajRzeczy} />
+          <Route path="/logowanie" component={Signin} />
+          <Route path="/rejestracja" component={Signup} />
+          <Route path="/wylogowano" component={Logout} />
         </Switch>
       </LayoutDefault>
     </Router>
+    </>
   );
 }
 
