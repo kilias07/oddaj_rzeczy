@@ -17,8 +17,9 @@ const Section4 = () => {
     indexOfFirstPost,
     indexOfLastPost
   );
+
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  const test = (index) => setActivePageClass(index);
+  const activePage = (index) => setActivePageClass(index);
 
   return (
     <div id="fundacje" className="helpInfo">
@@ -27,6 +28,7 @@ const Section4 = () => {
       <div className="helpInfo__list">
         {database.map((el, i) => (
           <button
+            key={i+220}
             className={activeIndex === i ? "helpInfo__active" : ""}
             onClick={() => {
               setActiveIndex(i);
@@ -40,9 +42,9 @@ const Section4 = () => {
       </div>
       <p>{database[activeIndex].description}</p>
       <ul className="helpInfo__list-desc">
-        {currentPosts.map((el, i) => (
-          <>
-            <li key={i}>
+        {currentPosts.map((el) => (
+          <div key={el.id}>
+            <li>
               <div>
                 <h2>{el.title}</h2>
                 <p>{el.description}</p>
@@ -50,14 +52,14 @@ const Section4 = () => {
               <p>{el.additional}</p>
             </li>
             <hr />
-          </>
+          </div>
         ))}
       </ul>
       <Pagination
         postsPerPage={postsPerPage}
         totalPosts={database[activeIndex].posts.length}
         paginate={paginate}
-        test={test}
+        activePage={activePage}
         activePageClass={activePageClass}
       />
     </div>

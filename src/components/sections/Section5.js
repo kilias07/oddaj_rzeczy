@@ -38,8 +38,8 @@ const Section5 = () => {
     sendEmail(data);
   };
   const test = () => {
-    console.log(errors.email && errors.email?.type)
-  }
+    console.log(errors.email && errors.email?.type);
+  };
 
   return (
     <div id="kontakt" className="contact">
@@ -95,7 +95,9 @@ const Section5 = () => {
             )}
           </label>
           <div>
-            <button type="submit" onClick={test}>Wyślij</button>
+            <button type="submit" onClick={test}>
+              Wyślij
+            </button>
           </div>
         </form>
       </div>
