@@ -1,0 +1,22 @@
+.logout {
+  min-height: calc(100vh - 346px);
+  width: 400px;
+  margin: auto;
+  padding-top: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    font-size: 32px;
+    text-align: center;
+    line-height: 40px;
+  }
+  img {
+    margin: 30px auto;
+  }
+  button {
+    background-color: white;
+    padding: 10px;
+    border: 0.75px solid $dark-gray;
+  }
+}

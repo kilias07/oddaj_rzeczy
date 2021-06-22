@@ -3,7 +3,7 @@ import { useState } from "react";
 import database from "../../dummy_data";
 import Pagination from "../layout/partials/Pagination";
 
-// import ReactPaginate from "react-paginate";
+
 
 const Section4 = () => {
   const [activeIndex, setActiveIndex] = useState(1);
