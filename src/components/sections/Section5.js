@@ -2,6 +2,8 @@ import decoration from "../../assets/images/Decoration.svg";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
+
+
 const Section5 = () => {
   const [sendSuccessful, setSendSuccessful] = useState(false);
   const {
@@ -37,9 +39,7 @@ const Section5 = () => {
     e.preventDefault();
     sendEmail(data);
   };
-  const test = () => {
-    console.log(errors.email && errors.email?.type);
-  };
+
 
   return (
     <div id="kontakt" className="contact">
@@ -95,7 +95,7 @@ const Section5 = () => {
             )}
           </label>
           <div>
-            <button type="submit" onClick={test}>
+            <button type="submit">
               Wyślij
             </button>
           </div>
