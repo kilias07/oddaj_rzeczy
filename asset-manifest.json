@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/oddaj_rzeczy/static/css/main.1112cb94.chunk.css",
+    "main.js": "/oddaj_rzeczy/static/js/main.07839e90.chunk.js",
+    "main.js.map": "/oddaj_rzeczy/static/js/main.07839e90.chunk.js.map",
+    "runtime-main.js": "/oddaj_rzeczy/static/js/runtime-main.5208b930.js",
+    "runtime-main.js.map": "/oddaj_rzeczy/static/js/runtime-main.5208b930.js.map",
+    "static/js/2.0b7e57d6.chunk.js": "/oddaj_rzeczy/static/js/2.0b7e57d6.chunk.js",
+    "static/js/2.0b7e57d6.chunk.js.map": "/oddaj_rzeczy/static/js/2.0b7e57d6.chunk.js.map",
+    "static/js/3.fb78647b.chunk.js": "/oddaj_rzeczy/static/js/3.fb78647b.chunk.js",
+    "static/js/3.fb78647b.chunk.js.map": "/oddaj_rzeczy/static/js/3.fb78647b.chunk.js.map",
+    "index.html": "/oddaj_rzeczy/index.html",
+    "static/css/main.1112cb94.chunk.css.map": "/oddaj_rzeczy/static/css/main.1112cb94.chunk.css.map",
+    "static/js/2.0b7e57d6.chunk.js.LICENSE.txt": "/oddaj_rzeczy/static/js/2.0b7e57d6.chunk.js.LICENSE.txt",
+    "static/media/main.scss": "/oddaj_rzeczy/static/media/People.2fa041c6.jpg",
+    "static/media/Decoration.aad75271.svg": "/oddaj_rzeczy/static/media/Decoration.aad75271.svg",
+    "static/media/Facebook.1c1ea3ae.svg": "/oddaj_rzeczy/static/media/Facebook.1c1ea3ae.svg",
+    "static/media/Icon-1.bd3d092a.svg": "/oddaj_rzeczy/static/media/Icon-1.bd3d092a.svg",
+    "static/media/Icon-2.cfac69a1.svg": "/oddaj_rzeczy/static/media/Icon-2.cfac69a1.svg",
+    "static/media/Icon-3.564c1731.svg": "/oddaj_rzeczy/static/media/Icon-3.564c1731.svg",
+    "static/media/Icon-4.f1b3fb6d.svg": "/oddaj_rzeczy/static/media/Icon-4.f1b3fb6d.svg",
+    "static/media/Instagram.5b663cf3.svg": "/oddaj_rzeczy/static/media/Instagram.5b663cf3.svg",
+    "static/media/Signature.8f2a001d.svg": "/oddaj_rzeczy/static/media/Signature.8f2a001d.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5208b930.js",
+    "static/js/2.0b7e57d6.chunk.js",
+    "static/css/main.1112cb94.chunk.css",
+    "static/js/main.07839e90.chunk.js"
+  ]
+}
