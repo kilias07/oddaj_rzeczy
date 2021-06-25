@@ -1,9 +1,9 @@
 import { NavHashLink } from "react-router-hash-link";
 const Navbar = () => {
   return (
-    <div className="flex justify-end py-2 navbar__container">
-      <nav className="xl:w-2/5">
-        <ul className="flex justify-between">
+    <div className="navbar__container">
+      <nav>
+        <ul>
           <li>
             <NavHashLink to="/" smooth>
               Start

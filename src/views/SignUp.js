@@ -20,6 +20,7 @@ const Signup = () => {
   const onSubmit = (data, e) => {
     e.preventDefault();
   };
+  
   return (
     <div className="login">
       <div>

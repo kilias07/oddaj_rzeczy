@@ -28,7 +28,7 @@ const Section4 = () => {
       <div className="helpInfo__list">
         {database.map((el, i) => (
           <button
-            key={i+220}
+            key={i}
             className={activeIndex === i ? "helpInfo__active" : ""}
             onClick={() => {
               setActiveIndex(i);

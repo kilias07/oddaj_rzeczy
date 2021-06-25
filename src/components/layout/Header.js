@@ -3,8 +3,8 @@ import Navbar from "./partials/Navbar";
 
 const Header = () => {
   return (
-    <header className="w-full">
-      <div className="xl:w-5/6">
+    <header>
+      <div>
         <Loginbar />
         <Navbar />
       </div>
